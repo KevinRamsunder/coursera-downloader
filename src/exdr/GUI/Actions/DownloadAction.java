@@ -1,26 +1,39 @@
-package exdr.GUI.GUISpecific;
-
-import java.util.List;
+package exdr.GUI.Actions;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import exdr.GUI.Containers.DownloaderContainer;
 import exdr.backend.FileAgents.DirectoryAgent;
 import exdr.backend.FileAgents.DownloadAgent;
 import exdr.backend.ParserPackage.containers.Downloadable;
+import exdr.backend.ParserPackage.containers.LectureTree;
 import exdr.backend.ParserPackage.containers.SectionHeader;
 import exdr.backend.ParserPackage.containers.VideoContent;
 
-public class GUIDownloader {
+public class DownloadAction {
 
-   private List<SectionHeader> weeks;
+   private LectureTree tree;
+   private String baseDir;
+   private int[] locations;
+   private final JPanel panel;
+   private final JLabel count;
 
-   public GUIDownloader(List<SectionHeader> weeks, final JPanel panel,
-         final JLabel count, String baseDir, int[] locations) {
+   public DownloadAction(DownloaderContainer container) {
+      this.tree = container.tree;
+      this.baseDir = container.baseDir;
+      this.locations = container.locations;
+      this.panel = container.panel;
+      this.count = container.count;
 
-      this.weeks = weeks;
+      init();
+
+      programFinished(baseDir);
+   }
+
+   private void init() {
       String tempDir = "";
       String tempDir2 = "";
 
@@ -40,19 +53,18 @@ public class GUIDownloader {
             }
          }
       }
-      programFinished(baseDir);
    }
 
    private SectionHeader access(int i) {
-      return weeks.get(i);
+      return tree.access(i);
    }
 
    private VideoContent access(int i, int j) {
-      return weeks.get(i).getSection(j);
+      return tree.access(i, j);
    }
 
    private Downloadable access(int i, int j, int k) {
-      return weeks.get(i).getSection(j).getDownload(k);
+      return tree.access(i, j, k);
    }
 
    private void updateList(final JPanel panel, final JLabel count) {

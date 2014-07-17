@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import exdr.GUI.Actions.LoginAction;
+import exdr.GUI.Containers.LoginContainer;
+
 public class LoginGUI {
 
    private JFrame frame;
@@ -63,9 +66,11 @@ public class LoginGUI {
    }
 
    private void addAction() {
-      LoginContainer container = new LoginContainer(frame, emailField,
-            passwordField, submitButton);
-      submitButton.addActionListener(new LoginAction(container));
+      submitButton.addActionListener(new LoginAction(getContainer()));
+   }
+
+   private LoginContainer getContainer() {
+      return new LoginContainer(frame, emailField, passwordField, submitButton);
    }
 
 }

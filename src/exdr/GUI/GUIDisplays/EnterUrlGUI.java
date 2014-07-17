@@ -84,29 +84,39 @@ public class EnterUrlGUI {
          try {
             html = agent.getCoursePageForParsing(url);
          } catch (IOException | IllegalArgumentException e1) {
-            String error = e1.getMessage();
-            if (error.equals(UserNotifications.badURL)) {
-               JOptionPane.showMessageDialog(null, GUINotifications.invalid);
-            } else if (error.equals(UserNotifications.accessDenied)) {
-               JOptionPane.showMessageDialog(null, GUINotifications.noAccess);
-            } else {
-               JOptionPane.showMessageDialog(null, GUINotifications.notFound);
-            }
-            textField.setText("");
+            processError(e1.getMessage());
             return;
          } catch (FailingHttpStatusCodeException e1) {
-            JOptionPane.showMessageDialog(null, GUINotifications.notFound);
-            textField.setText("");
+            promptNotFound();
             return;
          } catch (Exception e1) {
-            JOptionPane.showMessageDialog(null, GUINotifications.wrong);
-            textField.setText("");
+            promptBadInput();
             return;
+         } finally {
+            textField.setText("");
          }
 
          GUIMainParser data = new GUIMainParser(agent, html, url);
          new ResultsGUI(data);
          frame.dispose();
+      }
+
+      private void processError(String error) {
+         if (error.equals(UserNotifications.badURL)) {
+            JOptionPane.showMessageDialog(null, GUINotifications.invalid);
+         } else if (error.equals(UserNotifications.accessDenied)) {
+            JOptionPane.showMessageDialog(null, GUINotifications.noAccess);
+         } else {
+            JOptionPane.showMessageDialog(null, GUINotifications.notFound);
+         }
+      }
+
+      private void promptNotFound() {
+         JOptionPane.showMessageDialog(null, GUINotifications.notFound);
+      }
+
+      private void promptBadInput() {
+         JOptionPane.showMessageDialog(null, GUINotifications.wrong);
       }
    }
 }

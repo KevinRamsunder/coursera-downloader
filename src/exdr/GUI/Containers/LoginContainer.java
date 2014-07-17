@@ -1,4 +1,4 @@
-package exdr.GUI.GUIDisplays;
+package exdr.GUI.Containers;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

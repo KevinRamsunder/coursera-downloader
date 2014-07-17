@@ -1,4 +1,4 @@
-package exdr.GUI;
+package exdr;
 
 import java.awt.EventQueue;
 
@@ -8,10 +8,9 @@ import javax.swing.UIManager;
 import exdr.GUI.GUIDisplays.LoginGUI;
 import exdr.backend.Strings.GUINotifications;
 
-public class EntryPoint {
+public class GUIEntryPoint {
 
    public static void main(String[] args) {
-
       EventQueue.invokeLater(new Runnable() {
          public void run() {
             try {
@@ -22,7 +21,6 @@ public class EntryPoint {
             }
          }
       });
-
    }
 
    private static void initGUI() throws Exception {

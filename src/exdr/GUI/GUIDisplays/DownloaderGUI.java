@@ -11,13 +11,14 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EtchedBorder;
 
-import exdr.GUI.GUISpecific.GUIDownloader;
+import exdr.GUI.Actions.DownloadAction;
+import exdr.GUI.Actions.DownloadListAction;
+import exdr.GUI.Containers.DownloaderContainer;
 import exdr.backend.ParserPackage.containers.LectureTree;
 
 public class DownloaderGUI {
 
    private JFrame frame;
-
    private LectureTree structure;
    private int[] locations;
    private JPanel panel;
@@ -72,31 +73,24 @@ public class DownloaderGUI {
       label.setFont(new Font("Arial", Font.BOLD, 11));
       label.setBounds(132, 258, 94, 16);
       frame.getContentPane().add(label);
+
       initDownload();
    }
 
+   private DownloaderContainer getContainer() {
+      return new DownloaderContainer(structure, panel, count, absPath,
+            locations);
+   }
+
    private void addItemsToList(final JPanel panel) {
-      int r = 0;
-
-      for (int i = 0; i < locations.length; i++) {
-         int n = locations[i];
-         for (int j = 0; j < structure.access(n).getQuantity(); j++) {
-            for (int k = 0; k < structure.access(n, j).getDownloadableCount(); k++) {
-               panel.add(new JLabel(structure.access(n, j, k).getTitle()));
-               r++;
-            }
-         }
-      }
-
-      count.setText(String.valueOf(r));
+      new DownloadListAction(getContainer());
    }
 
    private void initDownload() {
       Thread thread = new Thread() {
          @Override
          public void run() {
-            new GUIDownloader(structure.getStructure(), panel, count, absPath,
-                  locations);
+            new DownloadAction(getContainer());
          }
       };
       thread.start();

@@ -1,4 +1,4 @@
-package exdr.GUI.GUIDisplays;
+package exdr.GUI.Actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +13,8 @@ import javax.swing.SwingUtilities;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 
+import exdr.GUI.Containers.LoginContainer;
+import exdr.GUI.GUIDisplays.EnterUrlGUI;
 import exdr.GUI.GUISpecific.GUIUserWebAgent;
 import exdr.backend.Strings.GUINotifications;
 import exdr.backend.WebAgents.UserCredentials;
@@ -62,7 +64,8 @@ public class LoginAction implements ActionListener {
          nonFatalError();
          return;
       } finally {
-         cleanUp(email, password);
+         email = null;
+         password = null;
       }
 
       nextTask(webAgent);
@@ -71,11 +74,6 @@ public class LoginAction implements ActionListener {
 
    private void nextTask(GUIUserWebAgent i) {
       new EnterUrlGUI(i);
-   }
-
-   private void cleanUp(char[] email, char[] password) {
-      email = null;
-      password = null;
    }
 
    private void fatalError() {
