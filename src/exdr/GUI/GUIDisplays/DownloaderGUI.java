@@ -93,6 +93,6 @@ public class DownloaderGUI {
             new DownloadAction(getContainer());
          }
       };
-      thread.start();
+      thread.start(); 
    }
 }

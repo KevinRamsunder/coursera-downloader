@@ -23,7 +23,7 @@ public class DownloadAction {
 
    public DownloadAction(DownloaderContainer container) {
       this.tree = container.tree;
-      this.baseDir = container.baseDir;
+      this.baseDir = container.baseDir; 
       this.locations = container.locations;
       this.panel = container.panel;
       this.count = container.count;

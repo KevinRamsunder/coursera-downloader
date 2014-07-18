@@ -10,6 +10,8 @@ import exdr.backend.Strings.GUINotifications;
 
 public class GUIEntryPoint {
 
+   /** GUI Entry */
+   
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
          public void run() {

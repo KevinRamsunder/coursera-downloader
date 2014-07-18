@@ -54,5 +54,6 @@ public class GUIMainParser {
       }
 
       structure = new LectureTree(weeks);
+      //
    }
 }

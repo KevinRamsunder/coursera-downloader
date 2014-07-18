@@ -13,11 +13,11 @@ public class VideoContentParser {
    }
 
    public String getTitle() {
-      return title;
+      return this.title;
    }
 
    public int getQuantity() {
-      return downloadableItems;
+      return this.downloadableItems;
    }
 
 }

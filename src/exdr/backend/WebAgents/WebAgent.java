@@ -31,8 +31,8 @@ public abstract class WebAgent {
          throw new IllegalArgumentException(UserNotifications.loginFailed);
       }
 
-      setJavascriptEnabled(false);
       page = null;
+      setJavascriptEnabled(false);
    }
 
    private void setJavascriptEnabled(boolean enabled) {

@@ -15,7 +15,7 @@ public class SectionHeader extends Header {
    }
 
    public List<VideoContent> getSectionList() {
-      return sections;
+      return this.sections;
    }
 
    public void add(VideoContent section) {

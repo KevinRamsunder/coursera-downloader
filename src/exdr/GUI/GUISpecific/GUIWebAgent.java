@@ -35,8 +35,8 @@ public abstract class GUIWebAgent {
          throw new IllegalArgumentException(UserNotifications.loginFailed);
       }
 
-      setJavascriptEnabled(false);
       page = null;
+      setJavascriptEnabled(false);
    }
 
    private void setJavascriptEnabled(boolean enabled) {

@@ -11,7 +11,7 @@ public class VideoContent extends Content {
 
    public VideoContent(VideoContentParser parser) {
       super(parser.getTitle(), parser.getQuantity());
-      downloads = new ArrayList<Downloadable>(super.downloadableItems);
+      downloads = new ArrayList<Downloadable>(downloadableItems);
    }
 
    public List<Downloadable> getDownloadables() {

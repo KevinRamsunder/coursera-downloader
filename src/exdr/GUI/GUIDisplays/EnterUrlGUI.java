@@ -47,8 +47,8 @@ public class EnterUrlGUI {
       frame.getContentPane().setLayout(null);
 
       JTextArea textArea = new JTextArea();
-      textArea
-            .setText("Enter course lecture URL. Example:\nwww.class.coursera.org/class-title/lecture");
+      String t = "Enter course lecture URL. Example:\nwww.class.coursera.org/class-title/lecture";
+      textArea.setText(t);
       textArea.setBounds(12, 11, 242, 33);
       frame.getContentPane().add(textArea);
       DefaultCaret caret = (DefaultCaret) textArea.getCaret();

@@ -23,12 +23,10 @@ import exdr.GUI.GUISpecific.GUIMainParser;
 public class ResultsGUI {
 
    private GUIMainParser parser;
-
    private JFrame frame;
    private JButton submit;
    private JCheckBox[] checkBox;
    private JToggleButton toggle;
-
    private int total;
    private boolean on = false;
 

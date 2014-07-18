@@ -7,7 +7,7 @@ public class UserCredentials {
     * are cleared faster from the system's memory when compared to Strings.
     * 
     * This class supplies the webAgent with user credentials once and only once,
-    * clearing the instance variables as soon as they are used.
+    * clearing the instance variables as soon as they are used//
     */
 
    private char[] email;

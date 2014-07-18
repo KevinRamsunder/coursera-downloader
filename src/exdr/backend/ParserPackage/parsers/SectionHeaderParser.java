@@ -13,10 +13,10 @@ public class SectionHeaderParser {
    }
 
    public String getTitle() {
-      return title;
+      return this.title;
    }
 
    public int getQuantity() {
-      return quantity;
+      return this.quantity;
    }
 }

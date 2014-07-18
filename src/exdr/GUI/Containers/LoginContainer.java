@@ -17,6 +17,6 @@ public class LoginContainer {
       this.frame = frame;
       this.emailField = emailField;
       this.passwordField = passwordField;
-      this.submitButton = submitButton;
+      this.submitButton = submitButton; 
    }
 }

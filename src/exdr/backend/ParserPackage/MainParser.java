@@ -25,7 +25,7 @@ public class MainParser {
 
    public MainParser(UserWebAgent agent, String url) {
       Document doc = Jsoup.parse(agent.getCoursePageForParsing(url));
-      title = url.substring(url.indexOf('/', 10) + 1, url.lastIndexOf('/'));
+      this.title = url.substring(url.indexOf('/', 10) + 1, url.lastIndexOf('/'));
 
       Elements masterList = doc.select(ParsingKeys.masterKey);
       Elements div = masterList.select(ParsingKeys.div);
@@ -36,8 +36,8 @@ public class MainParser {
       int liCounter = 0;
       int aCounter = 0;
 
-      List<SectionHeader> weeks = new ArrayList<SectionHeader>();
       Cookies cookies = new Cookies(agent.getCookies());
+      List<SectionHeader> weeks = new ArrayList<SectionHeader>();
 
       for (int i = 0; i < div.size(); i++) {
          SectionHeaderParser p1 = new SectionHeaderParser(div.get(i), ul.get(i));

@@ -21,10 +21,10 @@ public class DownloadableParser {
    }
 
    public String getTitle() {
-      return title;
+      return this.title;
    }
 
    public URL getURL() {
-      return url;
+      return this.url;
    }
 }

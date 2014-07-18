@@ -21,7 +21,7 @@ public class Downloadable {
    }
 
    public String getTitle() {
-      return title;
+      return this.title;
    }
 
    private String clearInvalidChars(String title) {

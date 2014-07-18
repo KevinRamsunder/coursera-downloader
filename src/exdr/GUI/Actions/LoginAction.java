@@ -30,7 +30,7 @@ public class LoginAction implements ActionListener {
       frame = container.frame;
       emailField = container.emailField;
       passwordField = container.passwordField;
-      submitButton = container.submitButton;
+      submitButton = container.submitButton; 
    }
 
    @Override

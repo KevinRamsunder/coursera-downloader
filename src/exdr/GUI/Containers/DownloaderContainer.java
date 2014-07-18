@@ -19,6 +19,6 @@ public class DownloaderContainer {
       this.panel = panel;
       this.count = count;
       this.baseDir = baseDir;
-      this.locations = locations;
+      this.locations = locations; 
    }
 }

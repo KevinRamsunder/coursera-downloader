@@ -33,6 +33,6 @@ public class DestinationGUI {
    }
 
    public String getPath() {
-      return path;
+      return path; 
    }
 }

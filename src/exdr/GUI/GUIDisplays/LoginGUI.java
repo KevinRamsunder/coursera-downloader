@@ -72,5 +72,4 @@ public class LoginGUI {
    private LoginContainer getContainer() {
       return new LoginContainer(frame, emailField, passwordField, submitButton);
    }
-
 }

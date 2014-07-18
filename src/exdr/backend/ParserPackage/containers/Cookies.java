@@ -11,6 +11,6 @@ public class Cookies {
    }
    
    public Map<String, String> getCookies() {
-      return this.cookies;
+      return cookies;
    }
 }

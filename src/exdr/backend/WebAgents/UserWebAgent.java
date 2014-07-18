@@ -21,7 +21,7 @@ public class UserWebAgent extends WebAgent {
    }
 
    private void createSessionID() {
-      cookies = new HashMap<String, String>();
+      this.cookies = new HashMap<String, String>();
 
       for (Cookie i : webClient.getCookieManager().getCookies()) {
          cookies.put(i.getName(), i.getValue());

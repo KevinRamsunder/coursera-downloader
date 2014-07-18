@@ -16,7 +16,7 @@ public class DownloadListAction {
    public DownloadListAction(DownloaderContainer container) {
       this.tree = container.tree;
       this.locations = container.locations;
-      this.panel = container.panel;
+      this.panel = container.panel; 
       this.count = container.count;
       
       init();

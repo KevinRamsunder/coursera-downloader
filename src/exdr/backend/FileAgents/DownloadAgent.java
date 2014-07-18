@@ -11,7 +11,6 @@ import exdr.backend.ParserPackage.containers.Downloadable;
 public class DownloadAgent {
 
    public static void downloadFile(Downloadable e, String path) {
-
       File dir = new File(getFinalPath(e, path));
 
       try {

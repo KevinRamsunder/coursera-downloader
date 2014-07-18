@@ -10,7 +10,7 @@ public class Outline {
     * Here is a basic outline of the program.
     * 
     * As it stands here, this program will not work: email, password and course
-    * url need to be provided.
+    * URL need to be provided.
     * 
     * Generally, it is not a good idea to hard code sensitive user information
     * in code, therefore, it is STRONGLY recommended that you use the GUI. The

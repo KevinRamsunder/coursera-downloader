@@ -19,7 +19,7 @@ public abstract class Header {
    }
 
    public String getTitle() {
-      return title;
+      return this.title;
    }
 
    public int getQuantity() {

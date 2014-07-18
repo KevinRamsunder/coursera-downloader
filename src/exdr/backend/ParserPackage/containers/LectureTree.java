@@ -19,7 +19,7 @@ public class LectureTree {
    }
 
    public List<SectionHeader> getStructure() {
-      return this.weeks;
+      return weeks;
    }
 
    public void createDirectoriesAndDownload(String baseDir) {
