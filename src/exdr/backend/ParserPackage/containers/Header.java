@@ -25,5 +25,4 @@ public abstract class Header {
    public int getQuantity() {
       return quantity;
    }
-
 }

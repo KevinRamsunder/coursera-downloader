@@ -22,21 +22,25 @@ public class LectureTree {
       return weeks;
    }
 
+   public void addWeeks(List<SectionHeader> w) {
+      weeks.addAll(w);
+   }
+
    public void createDirectoriesAndDownload(String baseDir) {
       String tempDir = "";
       String tempDir2 = "";
 
       for (int i = 0; i < weeks.size(); i++) {
          tempDir = baseDir + "\\" + access(i).title;
-         DirectoryAgent.createDirectory(tempDir);
+         DirectoryAgent.createDirectory((tempDir));
 
          for (int j = 0; j < access(i).quantity; j++) {
             tempDir2 = tempDir + "\\" + access(i, j).title;
-            DirectoryAgent.createDirectory(tempDir2);
+            DirectoryAgent.createDirectory((tempDir2));
 
             for (int k = 0; k < access(i, j).downloadableItems; k++) {
                System.out.println("Downloading: " + access(i, j, k).getTitle());
-               DownloadAgent.downloadFile(access(i, j, k), tempDir2);
+               DownloadAgent.downloadFile((access(i, j, k)), tempDir2);
             }
          }
       }
@@ -51,11 +55,11 @@ public class LectureTree {
       for (int i = 0; i < locations.length; i++) {
          int n = locations[i];
 
-         tempDir = baseDir + "\\" + access(n).title;
+         tempDir = baseDir + "\\" + (access(n).title);
          DirectoryAgent.createDirectory(tempDir);
 
          for (int j = 0; j < access(n).quantity; j++) {
-            tempDir2 = tempDir + "\\" + access(n, j).title;
+            tempDir2 = tempDir + "\\" + (access(n, j).title);
             DirectoryAgent.createDirectory(tempDir2);
 
             for (int k = 0; k < access(n, j).downloadableItems; k++) {

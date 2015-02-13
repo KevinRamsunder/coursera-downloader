@@ -1,12 +1,11 @@
 package exdr.backend.ParserPackage.containers;
 
-import java.io.IOException;
 import java.net.URL;
 
 import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
 
-import exdr.backend.ParserPackage.parsers.DownloadableParser;
+import exdr.backend.ParserPackage.parsers.DLParser;
 
 public class Downloadable {
 
@@ -14,7 +13,7 @@ public class Downloadable {
    protected URL url;
    private Cookies cookies;
 
-   public Downloadable(DownloadableParser parser, Cookies cookies) {
+   public Downloadable(DLParser parser, Cookies cookies) {
       this.title = clearInvalidChars(parser.getTitle());
       this.url = parser.getURL();
       this.cookies = cookies;
@@ -34,7 +33,12 @@ public class Downloadable {
    }
 
    private void modifyVideoURL() {
-      if (url.toString().contains(".mp4")) {
+      if (url == null) {
+         return;
+      }
+
+      String URL = url.toString();
+      if (URL != null && URL.contains(".mp4")) {
          modifyWithServerResponse();
       }
    }
@@ -45,11 +49,15 @@ public class Downloadable {
       try {
          r = Jsoup.connect(url.toString()).ignoreContentType(true)
                .cookies(cookies.getCookies()).execute();
-      } catch (IOException e) {
-         e.printStackTrace();
+      } catch (Exception e) {
+         return;
       }
 
-      this.url = r.url();
+      
+      if (r != null && r.url() != null) {
+         this.url = r.url();
+      } else {
+         this.url = null;
+      }
    }
-
 }

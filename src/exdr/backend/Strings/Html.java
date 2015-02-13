@@ -2,6 +2,7 @@ package exdr.backend.Strings;
 
 public class Html {
 
+   public static final String mainUrl = "https://www.coursera.org/";
    public static final String url = "https://accounts.coursera.org/";
    public static final String email = "signin-email";
    public static final String password = "signin-password";

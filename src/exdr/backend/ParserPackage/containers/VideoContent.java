@@ -3,13 +3,13 @@ package exdr.backend.ParserPackage.containers;
 import java.util.ArrayList;
 import java.util.List;
 
-import exdr.backend.ParserPackage.parsers.VideoContentParser;
+import exdr.backend.ParserPackage.parsers.VideoParser;
 
 public class VideoContent extends Content {
 
    private List<Downloadable> downloads;
 
-   public VideoContent(VideoContentParser parser) {
+   public VideoContent(VideoParser parser) {
       super(parser.getTitle(), parser.getQuantity());
       downloads = new ArrayList<Downloadable>(downloadableItems);
    }
@@ -25,5 +25,4 @@ public class VideoContent extends Content {
    public Downloadable getDownload(int i) {
       return downloads.get(i);
    }
-
 }
