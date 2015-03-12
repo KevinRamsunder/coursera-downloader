@@ -35,23 +35,23 @@ public class Courses {
    public List<String> getLinks() {
       return links;
    }
-   
+
    public String getTitle(int i) {
       return titles.get(i);
    }
-   
+
    public String getLink(int i) {
       return links.get(i);
    }
-   
+
    public void addToMap(int i, String j) {
       map.put(i, j);
    }
-   
+
    public HashMap<Integer, String> getMap() {
       return map;
    }
-   
+
    private class CourseListParser {
 
       public CourseListParser(HtmlPage page) {
@@ -70,11 +70,18 @@ public class Courses {
          }
 
          for (int i = 0; i < e.size(); i++) {
-            titles.add(t.get(i).ownText());
-            links.add(e.get(i).absUrl("href"));
-         }
+            String title = t.get(i).ownText();
+            String link = e.get(i).absUrl("href");
 
-         size = e.size();
-      }
+            // only include this course if a URL is found
+            if (link == null || link.length() < 15) {
+               continue;
+            } else {
+               titles.add(title);
+               links.add(link);
+               size++;
+            }
+         }
+      } 
    }
 }
