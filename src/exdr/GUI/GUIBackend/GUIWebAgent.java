@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.IncorrectnessListener;
+import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -44,9 +45,11 @@ public abstract class GUIWebAgent {
    }
 
    private void initWebClient() {
-      webClient = new WebClient(BrowserVersion.FIREFOX_17);
+      webClient = new WebClient(BrowserVersion.FIREFOX_24);
       webClient.getOptions().setCssEnabled(false);
+      webClient.setAjaxController(new NicelyResynchronizingAjaxController());
       webClient.getOptions().setJavaScriptEnabled(true);
+      webClient.getOptions().setThrowExceptionOnFailingStatusCode(false);
       webClient.getOptions().setThrowExceptionOnScriptError(false);
       webClient.getCookieManager().setCookiesEnabled(true);
       webClient.setIncorrectnessListener(new IncorrectnessListener() {
@@ -63,17 +66,17 @@ public abstract class GUIWebAgent {
 
    protected void waitForPageToLoad() {
       JavaScriptJobManager manager = page.getEnclosingWindow().getJobManager();
-      
+
       while (manager.getJobCount() > 0) {
-         webClient.waitForBackgroundJavaScript(1000);
+         webClient.waitForBackgroundJavaScript(1250);
       }
    }
 
    protected void waitForPageToLoad(HtmlPage page) {
       JavaScriptJobManager manager = page.getEnclosingWindow().getJobManager();
-      
+
       while (manager.getJobCount() > 0) {
-         webClient.waitForBackgroundJavaScript(1000);
+         webClient.waitForBackgroundJavaScript(1250);
       }
    }
 
@@ -101,7 +104,6 @@ public abstract class GUIWebAgent {
    private boolean verifyUser() {
       Cookie i = webClient.getCookieManager().getCookie(
             UserNotifications.cookieVerify);
-
       return i != null;
    }
 }
