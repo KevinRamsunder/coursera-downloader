@@ -17,8 +17,6 @@ To run the project, navigate to the directory with the jar file and execute the 
 /dir> **java** -jar coursera-downloader.jar
 
 ##Notes 
-This program is still in beta phase due to the nature of web-scraping applications. However, I have had much success using this application to quickly download resources from my own courses. If you encounter any problem at all, please make a note of it and contact me so that I can get started on a solution.
-
 This program requires user credentials to access your course information. If you are wary of privacy concerns, feel free to peruse the source code above. User information is stored once in class UserInformation, and quickly erased after it is used to log in to the website.
 
 ##GUI Walkthrough
