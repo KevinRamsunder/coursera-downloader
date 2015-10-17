@@ -1,5 +1,5 @@
 #Coursera: Resource Downloader
-######_Now Beta Testing!_
+######_Not currently working for specialization courses._
 
 
 ##About
